@@ -3,7 +3,7 @@
  * @BelongsPackage: PACKAGE_NAME
  * @Author: lp
  * @CreateTime: 2023-01-30  11:34
- * @Description: TODO
+ * @Description: 普通网站图片爬取
  * @Version: 1.0
  */
 import java.io.File;
@@ -30,7 +30,7 @@ public class Test2 {
         // 创建httpclient实例
         CloseableHttpClient httpclient = HttpClients.createDefault();
         // 创建httpget实例
-        HttpGet httpget = new HttpGet("https://www.csdn.net/?spm=1018.2226.3001.4476");
+        HttpGet httpget = new HttpGet("https://mp.weixin.qq.com/s/iMjUR-M6MMLQuFp2zYXYCQ");
         // 执行get请求
         CloseableHttpResponse response = httpclient.execute(httpget);
         HttpEntity entity = response.getEntity();
@@ -43,6 +43,11 @@ public class Test2 {
 
         // 获取指定的 <img />
         Elements elements = doc.select("img[src~=(?i)\\.(png|jpe?g)]");
+//        Element jsContent = doc.getElementById("js_content");
+//        // 获取到标签为img的素有元素集合
+//        Elements elements = jsContent.getElementsByTag("img");
+
+
         System.out.println(elements);
 
         for (int i = 0; i < 15; i++) {
